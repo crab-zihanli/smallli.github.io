@@ -8,7 +8,7 @@
     <link href="/smallli.github.io/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
     <url>/smallli.github.io/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
     
-    <content type="html"><![CDATA[<p>这是一篇测试文章</p><p><img src="/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/test.jpg" alt="图片引用方法二"></p><p><img src="/test.jpg"></p><img src="/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/test.jpg" class title="图片引用方法一"><img src="/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/yes.jpg" class title="果真如此"><p><img src="/test.jpg" alt="图片引用方法二"></p><p><img src="/images/test.jpg" alt="图片引用方法三"></p>]]></content>
+    <content type="html"><![CDATA[<p>这是一篇测试文章</p><p><img src="/smallli.github.io/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/test.jpg" alt="图片引用方法二"></p><p><img src="/smallli.github.io/test.jpg"></p><img src="/smallli.github.io/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/test.jpg" class title="图片引用方法一"><img src="/smallli.github.io/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/yes.jpg" class title="果真如此"><p><img src="/smallli.github.io/test.jpg" alt="图片引用方法二"></p><p><img src="/smallli.github.io/images/test.jpg" alt="图片引用方法三"></p>]]></content>
     
     
     <categories>
@@ -36,6 +36,33 @@
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>撒哈拉的故事</title>
+    <link href="/smallli.github.io/2020/04/22/%E6%92%92%E5%93%88%E6%8B%89%E7%9A%84%E6%95%85%E4%BA%8B/"/>
+    <url>/smallli.github.io/2020/04/22/%E6%92%92%E5%93%88%E6%8B%89%E7%9A%84%E6%95%85%E4%BA%8B/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>每想你一次，天上飘落一粒沙，从此形成了撒哈拉。——三毛</p></blockquote><p>看完这本书真的很佩服三毛可以活得那么恣意，那么随性，也很羡慕她有一个处处支持她的丈夫荷西。只是因为三毛说想要去见识沙漠的生活，他就不声不响的在撒哈拉申请到一份工作，在那租好房子等三毛过去。</p><p>大漠生活，不用想一定是非常艰难的，但是三毛与荷西硬是在沙漠中活出了一份诗意。精心装扮的小屋，与抠门邻居的有趣相处，甚至还有令人捧腹不禁的“沙漠观浴记”，字里行间都透露出他们沙漠生活的幸福与乐观。正是有相爱的人互相陪伴，再恶劣的环境也能活得有滋有味。就像那句话：心若没有栖息的地方，到哪里都是流浪。而若是找到那处栖息地，环境的好坏与否真的不重要了。</p><p>当然文中也不全都是轻松诙谐之文，“娃娃新娘”这篇文章就让我看得心情非常沉重。撒哈拉威人的某些不尊重女性的封建习俗，真是让人非常气愤。三毛作为一个现代女性，想要阻止这种事情的发生却又无能为力。作为读者，我也深感无力，就是现在世界上也有很多地方残留着这些封建糟粕，除了唏嘘与感叹，真的不知该说些什么。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>读书笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>文学</tag>
+      
+      <tag>感悟</tag>
+      
+    </tags>
     
   </entry>
   
