@@ -8,7 +8,7 @@
     <link href="/smallli.github.io/2023/11/11/%E5%8A%A8%E6%80%81%E7%89%A9%E8%B4%A8%E6%B5%81%E6%A8%A1%E5%9E%8B/"/>
     <url>/smallli.github.io/2023/11/11/%E5%8A%A8%E6%80%81%E7%89%A9%E8%B4%A8%E6%B5%81%E6%A8%A1%E5%9E%8B/</url>
     
-    <content type="html"><![CDATA[<p><a href="https://www.industrialecology.uni-freiburg.de/Content/IEooc_Methods3_Lecture1_Corrected_Cencic.pdf">动态物质流分析基本概念</a></p><p>动态：具有时间尺度<br>系统界定：</p>]]></content>
+    <content type="html"><![CDATA[<h4 id="动态物质流分析基本概念"><a href="#动态物质流分析基本概念" class="headerlink" title="动态物质流分析基本概念"></a><a href="https://www.industrialecology.uni-freiburg.de/Content/IEooc_Methods3_Lecture1_Corrected_Cencic.pdf">动态物质流分析基本概念</a></h4><p>动态：具有时间尺度<br>系统界定：元素、区域、时间<br>系统变量：存量、存量变化和流量<br>模型参数：通过等式将不同的系统变量联系起来#一般是自己设置的</p><p><strong>输入-输出&#x3D;存量的净变化</strong></p><p>系统界定清晰的好处在于：指标的明确定义<br>效率&#x3D;有效的输出&#x2F;输出</p><p>模型的计算需要设定<strong>初始时期的数值</strong></p><h4 id="动态存量模型"><a href="#动态存量模型" class="headerlink" title="动态存量模型"></a><a href="https://www.industrialecology.uni-freiburg.de/Content/IEooc_Methods3_Lecture2_Corrected_Cencic.pdf">动态存量模型</a></h4><h5 id="群体平衡模型"><a href="#群体平衡模型" class="headerlink" title="群体平衡模型"></a>群体平衡模型</h5><p>流入量-流出量&#x3D;存量随时间的变化率<br>该变化率在时间上累积形成该时间点的存量<br>**应用场景：所有具有守恒定律的过程</p><h5 id="浸出模型"><a href="#浸出模型" class="headerlink" title="浸出模型"></a>浸出模型</h5><p>流出量是存量的一个比例<br>**应用场景：放射性衰变、从污染物中浸出（物品离开存量的概率与其先后进入无关）</p>]]></content>
     
     
     <categories>
