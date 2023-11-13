@@ -4,6 +4,85 @@
   
   
   <entry>
+    <title>sys</title>
+    <link href="/smallli.github.io/2023/11/13/sys%20and%20os/"/>
+    <url>/smallli.github.io/2023/11/13/sys%20and%20os/</url>
+    
+    <content type="html"><![CDATA[<h1 id="sys"><a href="#sys" class="headerlink" title="sys"></a>sys</h1><p>sys模块是最常用的和<a href="https://so.csdn.net/so/search?q=python%E8%A7%A3%E9%87%8A%E5%99%A8&spm=1001.2101.3001.7020">python解释器</a>交互的模块,sys模块可供访问由解释器(interpreter)使用或维护的变量和与解释器进行交互的函数。<code>sys</code> 模块提供了许多函数和变量来处理 Python 运行时环境的不同部分。</p><blockquote><p>python解释器：将代码转换为计算机可以运行的语言</p></blockquote><p><a href="%5B%E3%80%90Python%E3%80%91sys%E5%BA%93%E4%BB%8B%E7%BB%8D_%E5%A7%9A%E8%B7%AF%E9%81%A5%E9%81%A5%E7%9A%84%E5%8D%9A%E5%AE%A2-CSDN%E5%8D%9A%E5%AE%A2%5D(https://blog.csdn.net/Roaddd/article/details/113576837)">sys常用的函数</a></p><ul><li><p>sys.argv 获取命令行参数list，第一个元素是脚本本身路径</p></li><li><p>sys.path 返回解释器搜索模块的路径list</p><ul><li>第0行是用来调用Python解释器的<strong>脚本的目录</strong></li><li>lib是标准库</li><li>site-packages是第三方库<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs moonscript"><span class="hljs-name">d</span>:\本科毕业论文\ODYM-master\docs<br><span class="hljs-name">C</span>:\Users\HUAWEI\AppData\Local\Programs\Python\Python39\python39.zip<br><span class="hljs-name">C</span>:\Users\HUAWEI\AppData\Local\Programs\Python\Python39\DLLs<br><span class="hljs-name">C</span>:\Users\HUAWEI\AppData\Local\Programs\Python\Python39\lib<br><span class="hljs-name">C</span>:\Users\HUAWEI\AppData\Local\Programs\Python\Python39<br><span class="hljs-name">C</span>:\Users\HUAWEI\AppData\Local\Programs\Python\Python39\lib\site-packages<br><span class="hljs-name">C</span>:\Users\HUAWEI\AppData\Local\Programs\Python\Python39\lib\site-packages\aclscheduletest<span class="hljs-number">-0.0</span><span class="hljs-number">.9</span>a5-py3<span class="hljs-number">.9</span>.egg<br></code></pre></td></tr></table></figure></li></ul></li><li><p>sys.path的应用：可以在运行时修改sys.path来添加或删除搜索路径</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sys<span class="hljs-selector-class">.path</span><span class="hljs-selector-class">.append</span>()#在列表最后加入这个路径，最后被搜寻<br>sys<span class="hljs-selector-class">.path</span><span class="hljs-selector-class">.insert</span>(<span class="hljs-number">0</span>,directory)#在最开始的位置加入，最先被搜寻<br></code></pre></td></tr></table></figure></li></ul><h1 id="os"><a href="#os" class="headerlink" title="os"></a>os</h1><p>[python os模块详解](<a href="https://zhuanlan.zhihu.com/p/150835193">Python os 模块详解 - 知乎 (zhihu.com)</a>)</p><p><code>os</code>就是“operating system”的缩写，顾名思义，<code>os</code>模块提供的就是各种 Python 程序与操作系统进行交互的接口。通过使用<code>os</code>模块，一方面可以方便地与操作系统进行交互，另一方面可以极大增强代码的可移植性。如果该模块中相关功能出错，会抛出<code>OSError</code>异常或其子类异常。</p><blockquote><p>注意，如果是读写文件的话，建议使用内置函数<code>open()</code>；<br>如果是路径相关的操作，建议使用<code>os</code>的子模块<code>os.path</code>；<br>如果要逐行读取多个文件，建议使用<code>fileinput</code>模块；<br>要创建临时文件或路径，建议使用<code>tempfile</code>模块；<br>要进行更高级的文件和路径操作则应当使用<code>shutil</code>模块。</p></blockquote><p>导入<code>os</code>模块时还要小心一点，千万<strong>不要</strong>为了图调用省事儿而将<code>os</code>模块解包导入，即不要使用<code>from os import *</code>来导入<code>os</code>模块；否则<code>os.open()</code>将会覆盖内置函数<code>open()</code>，从而造成预料之外的错误</p><ul><li>os.getcwd() getcwd”实际上是“get the current working directory”的简写，顾名思义，也就是说这个函数的作用是“获取当前工作路径”.</li><li>os.path模块<ul><li>os.path.join()<ul><li>这是一个十分实用的函数，可以将多个传入路径组合为一个路径。实际上是将传入的几个字符串用系统的分隔符连接起来，组合成一个新的字符串，所以一般的用法是将第一个参数作为父目录，之后每一个参数即为下一级目录，从而组合成一个新的符合逻辑的路径。</li><li>但如果传入路径中存在一个“绝对路径”格式的字符串，且这个字符串不是函数的第一个参数，那么<strong>其他在这个参数之前的所有参数都会被丢弃</strong>，余下的参数再进行组合。更准确地说，只有最后一个“绝对路径”及其之后的参数才会体现在返回结果中。</li></ul></li></ul></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>os.path.join(<span class="hljs-string">&quot;just&quot;</span>, <span class="hljs-string">&quot;do&quot;</span>, <span class="hljs-string">&quot;python&quot;</span>, <span class="hljs-string">&quot;dot&quot;</span>, <span class="hljs-string">&quot;com&quot;</span>)<br><span class="hljs-string">&#x27;just\\do\\python\\dot\\com&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.path.join(<span class="hljs-string">&quot;just&quot;</span>, <span class="hljs-string">&quot;do&quot;</span>, <span class="hljs-string">&quot;d:/&quot;</span>, <span class="hljs-string">&quot;python&quot;</span>, <span class="hljs-string">&quot;dot&quot;</span>, <span class="hljs-string">&quot;com&quot;</span>)<br><span class="hljs-string">&#x27;d:/python\\dot\\com&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.path.join(<span class="hljs-string">&quot;just&quot;</span>, <span class="hljs-string">&quot;do&quot;</span>, <span class="hljs-string">&quot;d:/&quot;</span>, <span class="hljs-string">&quot;python&quot;</span>, <span class="hljs-string">&quot;dot&quot;</span>, <span class="hljs-string">&quot;g:/&quot;</span>, <span class="hljs-string">&quot;com&quot;</span>)<br><span class="hljs-string">&#x27;g:/com&#x27;</span><br></code></pre></td></tr></table></figure><pre><code class="hljs">- os.path.dirname()</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>os.path.dirname(<span class="hljs-string">&quot;/ityouknow/justdopython/IAmBasename&quot;</span>)<br><span class="hljs-string">&#x27;/ityouknow/justdopython&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><br><span class="hljs-meta">&gt;&gt;&gt; </span>os.path.dirname(<span class="hljs-string">&quot;/ityouknow/justdopython/IAmBasename/&quot;</span>)<br><span class="hljs-string">&#x27;/ityouknow/justdopython/IAmBasename&#x27;</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>代码</tag>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>tutorials1</title>
+    <link href="/smallli.github.io/2023/11/13/tutorials1/"/>
+    <url>/smallli.github.io/2023/11/13/tutorials1/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>方法学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>python学习</title>
+    <link href="/smallli.github.io/2023/11/13/python%E5%AE%89%E8%A3%85%E4%B8%8Epip%E5%92%8C%E5%87%BD%E6%95%B0%E5%8A%9F%E8%83%BD%E6%9F%A5%E8%AF%A2/"/>
+    <url>/smallli.github.io/2023/11/13/python%E5%AE%89%E8%A3%85%E4%B8%8Epip%E5%92%8C%E5%87%BD%E6%95%B0%E5%8A%9F%E8%83%BD%E6%9F%A5%E8%AF%A2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><blockquote><p>环境变量：编辑系统环境变量-要为python和VS code都配置进</p></blockquote><p><a href="https://zhuanlan.zhihu.com/p/584126712">非常详细的Windows端python和VScode下载配置教程</a></p><h1 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h1><p>pip是用来管理python包的工具，<strong>查询目前下载的包，在cmd里进行</strong>：</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">pip</span> <span class="hljs-string">list</span><br><span class="hljs-string">pip</span> <span class="hljs-string">list</span> <span class="hljs-built_in">--outdated</span> <span class="hljs-comment">#需要更新的包</span><br></code></pre></td></tr></table></figure><ul><li>对pip进行更新<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">pip</span> <span class="hljs-built_in">--version</span> <span class="hljs-comment">#pip的版本</span><br><span class="hljs-string">pip</span> <span class="hljs-string">install</span> <span class="hljs-built_in">--upgrade</span> <span class="hljs-string">pip</span> <span class="hljs-comment">#对pip进行更新</span><br><span class="hljs-string">pip</span> <span class="hljs-string">install</span> <span class="hljs-built_in">--upgrade</span> [<span class="hljs-string">package</span> <span class="hljs-string">name</span>] <span class="hljs-comment">#对其他包进行更新</span><br></code></pre></td></tr></table></figure></li><li>下载和卸载包<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">pip install [<span class="hljs-keyword">package</span> <span class="hljs-title">name]</span><br># pip install xlwt<br>pip uninstall [<span class="hljs-keyword">package</span> <span class="hljs-title">name]</span><br></code></pre></td></tr></table></figure></li></ul><h1 id="help"><a href="#help" class="headerlink" title="help"></a>help</h1><ul><li>通过dir查看某个包的所有函数<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">import xlwt<br><span class="hljs-function"><span class="hljs-title">dir</span><span class="hljs-params">(xlwt)</span></span><br></code></pre></td></tr></table></figure></li><li>通过help得到函数说明列表<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">import xlwt<br><span class="hljs-function"><span class="hljs-title">help</span><span class="hljs-params">(xlwt)</span></span><br></code></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>代码</tag>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>动态物质流模型</title>
     <link href="/smallli.github.io/2023/11/11/%E5%8A%A8%E6%80%81%E7%89%A9%E8%B4%A8%E6%B5%81%E6%A8%A1%E5%9E%8B/"/>
     <url>/smallli.github.io/2023/11/11/%E5%8A%A8%E6%80%81%E7%89%A9%E8%B4%A8%E6%B5%81%E6%A8%A1%E5%9E%8B/</url>
@@ -35,7 +114,7 @@
     <link href="/smallli.github.io/2023/11/11/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E8%AE%B0%E5%BD%95/"/>
     <url>/smallli.github.io/2023/11/11/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C%E8%AE%B0%E5%BD%95/</url>
     
-    <content type="html"><![CDATA[<h3 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023-11-11"></a>2023-11-11</h3><blockquote><p>[1] Liang Y, Kleijn R, Van Der Voet E. Increase in demand for critical materials under IEA Net-Zero emission by 2050 scenario[J]. Applied Energy, 2023, 346.</p></blockquote><h1 id="情景设置"><a href="#情景设置" class="headerlink" title="情景设置"></a>情景设置</h1><p>使用了IEA的NZE情景，特别的地方在于只考虑能源转型就可以实现2050的零排放目标，并不需要非能源部门的转型。<br>这个情景是在2021年推出的，已经下载了数据集，只有2030、2040、2050等十个间隔年的粗糙的每个发电部门，例如风力发电、太阳能发电的具体数据。</p><h1 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h1><p><strong>如何从情景的设置外推出每种发电部门在转型过程所需金属的需求？</strong></p><p>这篇文章的文献综述部分给出了其他人计算的方法，我粗略地看了一下，一般都用了非常多的情景来计算，估计计算结果会比较粗糙。作者指出他要解决的问题是<em>NEA情景下特定技术的材料需求</em>，今天先学习这种。</p><ul><li>动态物质流模型</li><li>尺度：全球</li><li>行业：发电行业、道路乘用车两个地方的主要低碳技术（符合NZE情景）-光、风、电动汽车</li><li>预测未来材料需求-不止基于不同的低碳技术，还考虑潜在的回收材料</li><li>结果比较：IEA SDS情景</li><li>敏感性分析：材料强度、寿命等参数改变的作用</li></ul><h2 id="技术层面的模型"><a href="#技术层面的模型" class="headerlink" title="技术层面的模型"></a>技术层面的模型</h2><ol><li>目标的装机量数据（风能和光伏）在NEA情景下被认为是一个<strong>存量</strong></li><li>根据<strong>存量驱动模型</strong>可以计算相应的流入量和流出量</li><li>电动汽车的存量基于①整个乘用车市场的存量②NZE里电动汽车的份额<br><em>基于物质守恒原则</em></li></ol><p>每种技术的survival function基于生命周期分布：正态或韦伯&#x2F;找数据<br>计算每种技术的装机流量：风机、太阳能板和电动机</p><h2 id="材料层面的模型"><a href="#材料层面的模型" class="headerlink" title="材料层面的模型"></a>材料层面的模型</h2><blockquote><p>从技术层面的公式外推到次级技术和相关的材料</p></blockquote><ol><li>每年新增加的某种技术的装机量（inflow）乘以材料强度来计算材料需求</li><li>基于<strong>流量驱动模型</strong></li></ol><p><strong>数据来源</strong><br><strong>次级技术的渗透率</strong>由IEA的报告和一些相关研究确定（附件）</p><ul><li>电池数据2040-2050年缺乏，假定了固定不变的份额</li><li>历史风光数据来自于国际可再生能源委员会IRENA</li><li>历史电动汽车数据从全球EV展望2021和2022获得</li><li>未来风光装机量从NZE报告获得</li><li>未来人口和EV stock的种类份额从世界人口展望2019和IEA获得</li><li>风光装机数据从IEA获得的为每隔5年的logistic回归拟合（origin）</li><li>回收率从文献确定</li></ul><blockquote><p>假设随着技术进步，材料强度下降</p></blockquote><h2 id="敏感性分析"><a href="#敏感性分析" class="headerlink" title="敏感性分析"></a>敏感性分析</h2><p>两种可选择的敏感性变异</p><ol><li>改变生命周期假设，缩短EV的lifetime并且增加风光的（文献基础）<ol><li>文献支持：这样操作会降低相关金属的一次需求</li><li>但会减少二次资源供给的潜力</li></ol></li><li>假设不变的材料强度<ol><li>对于电池，假定未来创新；并且装机量升高</li></ol></li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023-11-11"></a>2023-11-11</h1><blockquote><p>[1] Liang Y, Kleijn R, Van Der Voet E. Increase in demand for critical materials under IEA Net-Zero emission by 2050 scenario[J]. Applied Energy, 2023, 346.</p></blockquote><h2 id="情景设置"><a href="#情景设置" class="headerlink" title="情景设置"></a>情景设置</h2><p>使用了IEA的NZE情景，特别的地方在于只考虑能源转型就可以实现2050的零排放目标，并不需要非能源部门的转型。<br>这个情景是在2021年推出的，已经下载了数据集，只有2030、2040、2050等十个间隔年的粗糙的每个发电部门，例如风力发电、太阳能发电的具体数据。</p><h2 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h2><p><strong>如何从情景的设置外推出每种发电部门在转型过程所需金属的需求？</strong></p><p>这篇文章的文献综述部分给出了其他人计算的方法，我粗略地看了一下，一般都用了非常多的情景来计算，估计计算结果会比较粗糙。作者指出他要解决的问题是<em>NEA情景下特定技术的材料需求</em>，今天先学习这种。</p><ul><li>动态物质流模型</li><li>尺度：全球</li><li>行业：发电行业、道路乘用车两个地方的主要低碳技术（符合NZE情景）-光、风、电动汽车</li><li>预测未来材料需求-不止基于不同的低碳技术，还考虑潜在的回收材料</li><li>结果比较：IEA SDS情景</li><li>敏感性分析：材料强度、寿命等参数改变的作用</li></ul><h3 id="技术层面的模型"><a href="#技术层面的模型" class="headerlink" title="技术层面的模型"></a>技术层面的模型</h3><ol><li>目标的装机量数据（风能和光伏）在NEA情景下被认为是一个<strong>存量</strong></li><li>根据<strong>存量驱动模型</strong>可以计算相应的流入量和流出量</li><li>电动汽车的存量基于①整个乘用车市场的存量②NZE里电动汽车的份额<br><em>基于物质守恒原则</em></li></ol><p>每种技术的survival function基于生命周期分布：正态或韦伯&#x2F;找数据<br>计算每种技术的装机流量：风机、太阳能板和电动机</p><h3 id="材料层面的模型"><a href="#材料层面的模型" class="headerlink" title="材料层面的模型"></a>材料层面的模型</h3><blockquote><p>从技术层面的公式外推到次级技术和相关的材料</p></blockquote><ol><li>每年新增加的某种技术的装机量（inflow）乘以材料强度来计算材料需求</li><li>基于<strong>流量驱动模型</strong></li></ol><p><strong>数据来源</strong><br><strong>次级技术的渗透率</strong>由IEA的报告和一些相关研究确定（附件）</p><ul><li>电池数据2040-2050年缺乏，假定了固定不变的份额</li><li>历史风光数据来自于国际可再生能源委员会IRENA</li><li>历史电动汽车数据从全球EV展望2021和2022获得</li><li>未来风光装机量从NZE报告获得</li><li>未来人口和EV stock的种类份额从世界人口展望2019和IEA获得</li><li>风光装机数据从IEA获得的为每隔5年的logistic回归拟合（origin）</li><li>回收率从文献确定</li></ul><blockquote><p>假设随着技术进步，材料强度下降</p></blockquote><h3 id="敏感性分析"><a href="#敏感性分析" class="headerlink" title="敏感性分析"></a>敏感性分析</h3><p>两种可选择的敏感性变异</p><ol><li>改变生命周期假设，缩短EV的lifetime并且增加风光的（文献基础）<ol><li>文献支持：这样操作会降低相关金属的一次需求</li><li>但会减少二次资源供给的潜力</li></ol></li><li>假设不变的材料强度<ol><li>对于电池，假定未来创新；并且装机量升高</li></ol></li></ol><h1 id="2023-11-12"><a href="#2023-11-12" class="headerlink" title="2023-11-12"></a>2023-11-12</h1><blockquote><p>问题：为什么到材料层面要用inflow-driven模型？</p></blockquote><p><em>装机容量：发电站所有发电机组额定发电功率的总和</em><br><em>材料强度：提供单位服务（装机容量）所需要的材料</em></p><p><strong>个人思考：</strong></p><ol><li>文献中的计算思路<ol><li>从情景中得到的是装机容量的存量数据-模型-每种技术装机容量的流量</li><li>次级技术的份额-动态变化</li><li>每种次级技术每年的流量</li><li>利用每种次级技术的材料强度（随年份变化反映技术变化）计算材料的流量</li><li>流量驱动模型-每年的存量</li></ol></li><li>如果全部用存量驱动模型呢？<ol><li>每年的装机容量-技术份额-材料强度-存量？</li><li>计算流量</li></ol></li></ol><h1 id="2023-11-13"><a href="#2023-11-13" class="headerlink" title="2023-11-13"></a>2023-11-13</h1>]]></content>
     
     
     <categories>
@@ -56,44 +135,6 @@
       <tag>能源转型</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>测试文章</title>
-    <link href="/smallli.github.io/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
-    <url>/smallli.github.io/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
-    
-    <content type="html"><![CDATA[<p>这是一篇测试文章</p><p><img src="/smallli.github.io/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/test.jpg" alt="图片引用方法二"></p><p><img src="/smallli.github.io/test.jpg"></p><img src="/smallli.github.io/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/test.jpg" class title="图片引用方法一"><img src="/smallli.github.io/2023/11/09/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/yes.jpg" class title="果真如此"><p><img src="/smallli.github.io/test.jpg" alt="图片引用方法二"></p><p><img src="/smallli.github.io/images/test.jpg" alt="图片引用方法三"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>lala</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>实验</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/smallli.github.io/2023/11/09/hello-world/"/>
-    <url>/smallli.github.io/2023/11/09/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
     
   </entry>
   
