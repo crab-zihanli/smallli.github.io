@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/smallli.github.io/img/crab.png">
+  <link rel="icon" href="/smallli.github.io/img/crab.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Zihan Li">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="NumPy是使用Python进行科学计算的基础包。NumPy包的核心是 ndarray 对象。对于循环而言，当涉及到 ndarray 时，逐个元素的操作是“默认模式”，但逐个元素的操作由预编译的C代码快速执行。 numpy中文网 基础知识NumPy的主要对象是同构多维数组。轴：即维度，类比二维数组有两个轴数组类被调用：ndarray  数组轴的个数：ndarray.ndim，该数量称为rank 数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="numpy">
+<meta property="og:url" content="https://crab-zihanli.github.io/smallli.github.io/2023/11/13/numpy/index.html">
+<meta property="og:site_name" content="Zihan Li">
+<meta property="og:description" content="NumPy是使用Python进行科学计算的基础包。NumPy包的核心是 ndarray 对象。对于循环而言，当涉及到 ndarray 时，逐个元素的操作是“默认模式”，但逐个元素的操作由预编译的C代码快速执行。 numpy中文网 基础知识NumPy的主要对象是同构多维数组。轴：即维度，类比二维数组有两个轴数组类被调用：ndarray  数组轴的个数：ndarray.ndim，该数量称为rank 数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-13T14:53:59.000Z">
+<meta property="article:modified_time" content="2023-11-14T11:49:46.367Z">
+<meta property="article:author" content="Zihan Li">
+<meta property="article:tag" content="代码">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>numpy - Zihan Li</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/smallli.github.io/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/smallli.github.io/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/smallli.github.io/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"crab-zihanli.github.io","root":"/smallli.github.io/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/smallli.github.io/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/smallli.github.io/js/utils.js" ></script>
+  <script  src="/smallli.github.io/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/smallli.github.io/">
+      <strong>Zihan Li</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/smallli.github.io/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/smallli.github.io/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/smallli.github.io/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/smallli.github.io/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/smallli.github.io/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/smallli.github.io/img/mountain.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="numpy"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-13 22:53" pubdate>
+          2023年11月13日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">numpy</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>NumPy是使用Python进行科学计算的基础包。NumPy包的核心是 <em>ndarray</em> 对象。<br>对于循环而言，当涉及到 <em>ndarray</em> 时，<strong>逐个元素的操作是“默认模式”</strong>，但逐个元素的操作由预编译的C代码快速执行。</p>
+<p><a target="_blank" rel="noopener" href="https://www.numpy.org.cn/user/quickstart.html#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6">numpy中文网</a></p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>NumPy的主要对象是同构多维数组。<br>轴：即维度，类比二维数组有两个轴<br>数组类被调用：ndarray</p>
+<ul>
+<li>数组轴的个数：ndarray.ndim，该数量称为rank</li>
+<li>数组的维度：ndarray.shape 整数的元组，表示每个轴数组的大小，对于n行m列，shape为(n,m)，shape元组的长度就是轴或者维度的数量</li>
+<li>数组元素的总数：ndarray.size</li>
+<li>描述数组中元素类型的对象ndarray.dtype</li>
+</ul>
+<h2 id="数组创建"><a href="#数组创建" class="headerlink" title="数组创建"></a>数组创建</h2><p>1.从array函数从常规的python列表创建</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">a</span> = np.array([<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]) #right<br><span class="hljs-attribute">a</span> = np.array(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>) #wrong<br></code></pre></td></tr></table></figure>
+<p>array还可以将序列的序列转换为二维数据，将序列的序列的序列转为3维数组</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">b</span> = np<span class="hljs-selector-class">.array</span>(<span class="hljs-selector-attr">[(1,2),(3,4)]</span>)<br><span class="hljs-selector-tag">b</span><br><span class="hljs-built_in">array</span>(<span class="hljs-selector-attr">[[1,2]</span>,<br>	   <span class="hljs-selector-attr">[3,4]</span>])<br></code></pre></td></tr></table></figure>
+<p>也可以在创建时显式指定数组的类型</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs inform7">c = np.array( <span class="hljs-comment">[ <span class="hljs-comment">[1,2]</span>, <span class="hljs-comment">[3,4]</span> ]</span>, dtype=complex )<br></code></pre></td></tr></table></figure>
+<p>2.通常，数组的元素最初是未知的，但它的大小是已知的。因此，NumPy提供了几个函数来创建具有初始占位符内容的数组。这就减少了数组增长的必要，因为数组增长的操作花费很大。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">np</span>.zeros((<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))#由<span class="hljs-number">0</span>组成的数组<br><span class="hljs-attribute">np</span>.ones((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))#由<span class="hljs-number">1</span>组成的数组<br><span class="hljs-attribute">np</span>.empty((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))#随机生成的数组<br><span class="hljs-attribute">np</span>.arange(<span class="hljs-number">10</span>,<span class="hljs-number">30</span>,<span class="hljs-number">5</span>)#生成<span class="hljs-number">10</span>到<span class="hljs-number">30</span>，interval为<span class="hljs-number">5</span>的一维数组<br></code></pre></td></tr></table></figure>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><ul>
+<li>数组上的算术运算符会应用到 <em>元素</em> 级别</li>
+<li>矩阵也是按照元素计算的，如果想要进行线代上的矩阵乘法，则可以用@符号，而非*</li>
+<li>当使用不同类型的数组进行操作时，结果数组的类型对应于更准确的数组（向上转换）</li>
+<li>通常sum、min等操作针对数组整个元素，但是如果指定轴axis，对轴进行操作</li>
+</ul>
+<h1 id="通函数"><a href="#通函数" class="headerlink" title="通函数"></a>通函数</h1><p>例如sin、exp等，在数组上按元素进行运算，并输出一个新的数组</p>
+<h1 id="索引、切片和迭代"><a href="#索引、切片和迭代" class="headerlink" title="索引、切片和迭代"></a>索引、切片和迭代</h1><ul>
+<li>一维数组的操作类似列表</li>
+<li>多维的数组每个轴可以有一个索引，这些索引以逗号分隔的元组给出；当提供的索引少于轴的数量时，缺失的索引被认为是完整的切片<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">b</span><span class="hljs-selector-attr">[2,3]</span> <span class="hljs-selector-id">#b</span>是二维数组<br><span class="hljs-selector-tag">b</span><span class="hljs-selector-attr">[0:5,1]</span><br><span class="hljs-selector-tag">b</span><span class="hljs-selector-attr">[i,:]</span><br><span class="hljs-selector-tag">c</span><span class="hljs-selector-attr">[1,...,5,:]</span><br></code></pre></td></tr></table></figure></li>
+<li>对多维数组进行迭代是相对于第一个轴来说的<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">a</span>=[[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]]<br><span class="hljs-attribute">for</span> row in a:<br>	<span class="hljs-attribute">print</span>(row)<span class="hljs-meta"></span><br><span class="hljs-meta">[1,2]</span><span class="hljs-meta"></span><br><span class="hljs-meta">[3,4]</span><br></code></pre></td></tr></table></figure></li>
+<li>如果想对数组中的每个元素执行操作，可以使用flat属性，这是数组特有的<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">for</span> element in a.flat:<br>	<span class="hljs-attribute">print</span>(element)<br><span class="hljs-attribute">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="形状操作"><a href="#形状操作" class="headerlink" title="形状操作"></a>形状操作</h1><p>原数组：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs inform7">a= <span class="hljs-comment">[<span class="hljs-comment">[1,2,3]</span>,<span class="hljs-comment">[4,5,6]</span>,<span class="hljs-comment">[7,8,9]</span>,<span class="hljs-comment">[10,11,12]</span>]</span><br></code></pre></td></tr></table></figure>
+<p>以下三个命令都返回一个修改后的数组，但不会更改原始数组</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-keyword">a</span>.ravel() <span class="hljs-comment">#将数组降为1维</span><br><span class="hljs-keyword">a</span>.reshape((<span class="hljs-number">6</span>,<span class="hljs-number">2</span>)) <span class="hljs-comment">#改变每个维度的长度</span><br><span class="hljs-keyword">a</span>.T <span class="hljs-comment">#行列转换</span><br></code></pre></td></tr></table></figure>
+<p>reshape函数返回带有修改形状的参数，而resize会修改数组本身</p>
+<h1 id="将不同数组堆叠在一起"><a href="#将不同数组堆叠在一起" class="headerlink" title="将不同数组堆叠在一起"></a>将不同数组堆叠在一起</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&gt;&gt;&gt; <span class="hljs-selector-tag">a</span> = np<span class="hljs-selector-class">.floor</span>(<span class="hljs-number">10</span>*np<span class="hljs-selector-class">.random</span><span class="hljs-selector-class">.random</span>((<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)))<br>&gt;&gt;&gt; <span class="hljs-selector-tag">a</span><br><span class="hljs-built_in">array</span>(<span class="hljs-selector-attr">[[ 8.,  8.]</span>,<br>       <span class="hljs-selector-attr">[ 0.,  0.]</span>])<br>&gt;&gt;&gt; <span class="hljs-selector-tag">b</span> = np<span class="hljs-selector-class">.floor</span>(<span class="hljs-number">10</span>*np<span class="hljs-selector-class">.random</span><span class="hljs-selector-class">.random</span>((<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)))<br>&gt;&gt;&gt; <span class="hljs-selector-tag">b</span><br><span class="hljs-built_in">array</span>(<span class="hljs-selector-attr">[[ 1.,  8.]</span>,<br>       <span class="hljs-selector-attr">[ 0.,  4.]</span>])<br>&gt;&gt;&gt; np<span class="hljs-selector-class">.vstack</span>((<span class="hljs-selector-tag">a</span>,b))<br><span class="hljs-built_in">array</span>(<span class="hljs-selector-attr">[[ 8.,  8.]</span>,<br>       <span class="hljs-selector-attr">[ 0.,  0.]</span>,<br>       <span class="hljs-selector-attr">[ 1.,  8.]</span>,<br>       <span class="hljs-selector-attr">[ 0.,  4.]</span>])<br>&gt;&gt;&gt; np<span class="hljs-selector-class">.hstack</span>((<span class="hljs-selector-tag">a</span>,b))<br><span class="hljs-built_in">array</span>(<span class="hljs-selector-attr">[[ 8.,  8.,  1.,  8.]</span>,<br>       <span class="hljs-selector-attr">[ 0.,  0.,  0.,  4.]</span>])<br></code></pre></td></tr></table></figure>
+<h1 id="拆分数组"><a href="#拆分数组" class="headerlink" title="拆分数组"></a>拆分数组</h1><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs lua">&gt;&gt;&gt; a = np.<span class="hljs-built_in">floor</span>(<span class="hljs-number">10</span>*np.<span class="hljs-built_in">random</span>.<span class="hljs-built_in">random</span>((<span class="hljs-number">2</span>,<span class="hljs-number">12</span>)))<br>&gt;&gt;&gt; a<br>array(<span class="hljs-string">[[ 9.,  5.,  6.,  3.,  6.,  8.,  0.,  7.,  9.,  7.,  2.,  7.],</span><br><span class="hljs-string">       [ 1.,  4.,  9.,  2.,  2.,  1.,  0.,  6.,  2.,  2.,  4.,  0.]]</span>)<br>&gt;&gt;&gt; np.hsplit(a,<span class="hljs-number">3</span>)   # Split a into <span class="hljs-number">3</span><br>[array(<span class="hljs-string">[[ 9.,  5.,  6.,  3.],</span><br><span class="hljs-string">       [ 1.,  4.,  9.,  2.]]</span>), array(<span class="hljs-string">[[ 6.,  8.,  0.,  7.],</span><br><span class="hljs-string">       [ 2.,  1.,  0.,  6.]]</span>), array(<span class="hljs-string">[[ 9.,  7.,  2.,  7.],</span><br><span class="hljs-string">       [ 2.,  2.,  4.,  0.]]</span>)]<br>&gt;&gt;&gt; np.hsplit(a,(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))   # Split a after the third <span class="hljs-keyword">and</span> the fourth column<br>[array(<span class="hljs-string">[[ 9.,  5.,  6.],</span><br><span class="hljs-string">       [ 1.,  4.,  9.]]</span>), array(<span class="hljs-string">[[ 3.],</span><br><span class="hljs-string">       [ 2.]]</span>), array(<span class="hljs-string">[[ 6.,  8.,  0.,  7.,  9.,  7.,  2.,  7.],</span><br><span class="hljs-string">       [ 2.,  1.,  0.,  6.,  2.,  2.,  4.,  0.]]</span>)]<br></code></pre></td></tr></table></figure>
+<p>vsplit沿垂直轴分割</p>
+<h1 id="拷贝和视图"><a href="#拷贝和视图" class="headerlink" title="拷贝和视图"></a>拷贝和视图</h1><h2 id="完全不复制"><a href="#完全不复制" class="headerlink" title="完全不复制"></a>完全不复制</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">a</span> = np<span class="hljs-selector-class">.arange</span>(<span class="hljs-number">12</span>)<br><span class="hljs-selector-tag">b</span> = <span class="hljs-selector-tag">a</span> <br><span class="hljs-selector-tag">b</span> is <span class="hljs-selector-tag">a</span> <br>True<br><span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.shape</span> = <span class="hljs-number">3</span>,<span class="hljs-number">4</span><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.shape</span><br>(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)<br><span class="hljs-selector-id">#a</span> &amp; <span class="hljs-selector-tag">b</span> are identical<br></code></pre></td></tr></table></figure>
+<h2 id="视图或者浅拷贝"><a href="#视图或者浅拷贝" class="headerlink" title="视图或者浅拷贝"></a>视图或者浅拷贝</h2><figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python-repl">c = a.view()<br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">c <span class="hljs-keyword">is</span> a</span><br>False<br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">c.base <span class="hljs-keyword">is</span> a</span><br>True<br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">c.shape = <span class="hljs-number">6</span>,<span class="hljs-number">2</span></span><br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">a.shape</span><br>(3,4)<br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">c[<span class="hljs-number">0</span>,<span class="hljs-number">4</span>] = <span class="hljs-number">1234</span> <span class="hljs-comment">#a will change as well.</span></span><br>#切片数组也是返回一个查看视图<br></code></pre></td></tr></table></figure>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python-repl">d = a.copy()<br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">d <span class="hljs-keyword">is</span> a</span><br>False<br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">d.base <span class="hljs-keyword">is</span> a</span><br>False<br><span class="hljs-meta prompt_">&gt;&gt;&gt;</span> <span class="language-python">d[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>] = <span class="hljs-number">9999</span> <span class="hljs-comment"># a won&#x27;t change any more.</span></span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/smallli.github.io/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/smallli.github.io/tags/%E4%BB%A3%E7%A0%81/" class="print-no-link">#代码</a>
+      
+        <a href="/smallli.github.io/tags/python/" class="print-no-link">#python</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>numpy</div>
+      <div>https://crab-zihanli.github.io/smallli.github.io/2023/11/13/numpy/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Zihan Li</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/smallli.github.io/2023/11/13/pandas/" title="pandas">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">pandas</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/smallli.github.io/2023/11/13/sys%20and%20os/" title="sys">
+                        <span class="hidden-mobile">sys</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/smallli.github.io/js/events.js" ></script>
+<script  src="/smallli.github.io/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/smallli.github.io/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/smallli.github.io/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/smallli.github.io/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
