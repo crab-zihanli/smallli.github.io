@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>我的快乐时代</title>
+    <link href="/smallli.github.io/2023/12/19/%E6%88%91%E7%9A%84%E5%BF%AB%E4%B9%90%E6%97%B6%E4%BB%A3/"/>
+    <url>/smallli.github.io/2023/12/19/%E6%88%91%E7%9A%84%E5%BF%AB%E4%B9%90%E6%97%B6%E4%BB%A3/</url>
+    
+    <content type="html"><![CDATA[<img src="/smallli.github.io/2023/12/19/%E6%88%91%E7%9A%84%E5%BF%AB%E4%B9%90%E6%97%B6%E4%BB%A3/song_image.jpg" class title="不要去想结果"><p>今天偶然听到了陈奕迅在很年轻的时候唱的一首歌，不同于现在他很多著名的伤感情歌，这首歌的名字和基调都是偏乐观的。也适合年轻的他吧~</p><blockquote><p>让我有勇气去喊停<br>没有结局也可尽兴</p></blockquote><p>关于这首歌，尤其是这两句歌词，我联想到的不仅仅是“把握当下”“活在现在”之类的，还有一个关于自己最近生活的感悟。</p><p>我觉得我有时候很害怕 <em>努力之后没有结果</em>，因为这样会显得我有点可怜？可能要用这个词。这样一种想法会让我不敢去付出太多努力。如果我付出很多努力，还比不上别人轻轻松松得到的结果，我会为自己感到不值当。假如一开始就不付出太多，什么样的结果总可以接受的，总可以宽慰自己一句“自己只是没好好付出罢了”。【或许是在自己欺骗自己吧】</p><p>最近有在努力纠正这种想法了。我学会要对自己坦诚。如果我通过比别人更多的努力得到让人满意的结果，这有什么不能接受呢！？就算结果不尽如人意，我会损失什么吗？是丢脸了吗？我觉得不是。不敢坦然承认自己的目标，不敢为之大大方方的付出才是软弱的表现。</p><p>想想最后的时候，可以问心无愧地说出”我为这个结果付出了很多，我很感谢我的认真和努力”，这将是多么酷的一件事。</p><p>就算结局不算顺遂，我也可以说出“虽然对结果存在遗憾，但我仍谢谢始终不曾放弃的自己。”有个成语叫“功不唐捐”，我很喜欢这个词，每一步都算数，衡量事情不只有结局这个维度。就像我暑假写报告，表面上看“不论写成怎样都能过”，而且那篇报告的内容其实跟专业内容基本无关系，但我还是认真学习了，最后惊喜地发现本科毕设写的文章可以用到暑假学到的数据库……</p><p>所以，想要得到什么就尽力去做吧！！！</p><p><em>这篇真的是个鸡汤文，以上感悟多基于个人游泳学习过程</em></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>随笔杂谈</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>感悟</tag>
+      
+      <tag>音乐</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SSP-IAM-scenario</title>
+    <link href="/smallli.github.io/2023/12/15/SSP-IAM-scenario/"/>
+    <url>/smallli.github.io/2023/12/15/SSP-IAM-scenario/</url>
+    
+    <content type="html"><![CDATA[<h6 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h6><ul><li>Radiative Forcing（辐射强迫）<ul><li>net change in the energy balance of the Earth system due to some imposed perturbation.   <a href="https://www.ipcc.ch/site/assets/uploads/2018/02/WG1AR5_Chapter08_FINAL.pdf">IPCC介绍</a></li><li>单位：瓦特&#x2F;平方米</li></ul></li></ul><h1 id="SSP-narratives"><a href="#SSP-narratives" class="headerlink" title="SSP narratives"></a>SSP narratives</h1><p>The SSP narratives comprise a <strong>textual description</strong> of how the future might unfold in terms of broad societal trends. Their main purpose is to provide an <strong>internally consistent logic</strong> of the main causal relationships, including a description of trends that are traditionally difficult to capture by models. In this sense, the SSP narratives are an important <strong>complement to the quantitative model</strong> projections. By describing major socioeconomic, demographic, technological, lifestyle, policy, institutional and other trends, the narratives add important context for a broad user community to <strong>better understand the foundation and meaning of the quantitative SSP projections</strong>. At the same time, the narratives have been a key input into the modeling process, since they underpin the quantifications and guided the selection of assumptions for the socioeconomic projections and the SSP energy and land-use transitions described in this special issue.</p><p>Consistent with the overall scenario framework, the narratives are designed to span a range of futures in terms of the socioeconomic challenges they imply for mitigating and adapting to climate change. Two of the SSPs describe futures where challenges to adaptation and mitigation are both low (SSP1) or both high (SSP3). In addition, two “asymmetric cases” are designed, comprising a case in which high challenges to mitigation is combined with low challenges to adaptation (SSP5), and a case where the opposite is true (SSP4). Finally a central case describes a world with intermediate challenges for both adaptation and mitigation (SSP2).</p><p>In <a href="https://www.sciencedirect.com/science/article/pii/S0959378016300681?via=ihub#tbl0010">Table 2</a> we provide a short summary of the global narratives, which have been used throughout all the papers of this special issue. <a href="https://www.sciencedirect.com/science/article/pii/S0959378016300681?via=ihub#bib0165">O’Neill et al., (2016a)</a> provides a more detailed description and discussion of the narratives. In addition, the Supplementary material (Section 4 and Appendix A) includes specific descriptions of how the global narratives were extended to provide further guidance on scenario assumptions concerning energy demand and supply, technological change, and land-use changes.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>方法学习</tag>
+      
+      <tag>情景分析</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>拉普拉斯的魔女</title>
     <link href="/smallli.github.io/2023/12/14/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E7%9A%84%E9%AD%94%E5%A5%B3/"/>
     <url>/smallli.github.io/2023/12/14/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E7%9A%84%E9%AD%94%E5%A5%B3/</url>
